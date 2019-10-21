@@ -1,0 +1,25 @@
+{
+  "name": "koodihaaste-solidabis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "routes.js",
+  "scripts": {
+    "service": "micro-dev -p 4000 routes.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliarainto/koodihaaste-solidabis.git"
+  },
+  "author": "Julia.Rainto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juliarainto/koodihaaste-solidabis/issues"
+  },
+  "homepage": "https://github.com/juliarainto/koodihaaste-solidabis#readme",
+  "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
+    "micro": "^9.3.4",
+    "micro-cors": "^0.1.1",
+    "micro-dev": "^3.0.0"
+  }
+}
