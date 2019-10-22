@@ -33,6 +33,27 @@ async function main() {
   }
 }
 
+function ifSentenceHasFinnishWords(decryptedSentence) {
+  const wordEndings = ["en", "lla", "llä", "ssa", "ssä", "sta", "stä", "sä", "sa", "tä", "nä", "ta", "na", "nen", "een", "ni", "si", "kö", "ko", "kin", "kään", "kökin", "aan", "ksi", "iin", "rin", "lle", "llä", "neet"];
+  const possibleFinWords = [];
+  // console.log(decryptedSentence);
+  for (const word of decryptedSentence) {
+    wordEndings.forEach(element => {
+      if (word.endsWith(element)) {
+        possibleFinWords.push(word);
+      }
+    });
+  }
+  const sentence = decryptedSentence.join(" ");
+  if (possibleFinWords.length > 6) {
+    const finnishSentences = document.getElementById("finnish");
+    finnishSentences.innerHTML += `<p> ${sentence} </p>`
+  } else {
+    const bullshitSentences = document.getElementById("bullshit");
+    bullshitSentences.innerHTML += `<p> ${sentence} </p>`
+  }
+}
+
 function shiftSentenceByOne(sentence) {
   const alphabet = "abcdefghijklmnopqrstuvwxyzåäö".split("");
   const decryptedWords = [];
@@ -56,8 +77,10 @@ function shiftSentenceByOne(sentence) {
       }
     }
     decryptedWords.push(decryptedWord);
+
   }
-  console.log(decryptedWords);
+  ifSentenceHasFinnishWords(decryptedWords);
+  // console.log(decryptedWords);
 }
 
 // Run main function
