@@ -33,10 +33,9 @@ async function main() {
   }
 }
 
-function ifSentenceHasFinnishWords(decryptedSentence) {
+function sentenceHasFinnishWords(decryptedSentence) {
   const wordEndings = ["en", "lla", "llä", "ssa", "ssä", "sta", "stä", "sä", "sa", "tä", "nä", "ta", "na", "nen", "een", "ni", "si", "kö", "ko", "kin", "kään", "kökin", "aan", "ksi", "iin", "rin", "lle", "llä", "neet"];
   const possibleFinWords = [];
-  // console.log(decryptedSentence);
   for (const word of decryptedSentence) {
     wordEndings.forEach(element => {
       if (word.endsWith(element)) {
@@ -44,14 +43,22 @@ function ifSentenceHasFinnishWords(decryptedSentence) {
       }
     });
   }
+  // Turning the first letter of the sentence to upper case.
+  decryptedSentence[0] = decryptedSentence[0].charAt(0).toUpperCase() + decryptedSentence[0].slice(1);
+
   const sentence = decryptedSentence.join(" ");
-  if (possibleFinWords.length > 6) {
+  const wordsInSentence = decryptedSentence.length;
+  const percentageOfFinnishWords = (possibleFinWords.length / wordsInSentence) * 100;
+
+  // If Sentence has finnish words more than 60%. It is a Finnish sentence.
+  if (percentageOfFinnishWords > 60) {
     const finnishSentences = document.getElementById("finnish");
     finnishSentences.innerHTML += `<p> ${sentence} </p>`
   } else {
     const bullshitSentences = document.getElementById("bullshit");
     bullshitSentences.innerHTML += `<p> ${sentence} </p>`
   }
+  console.log(sentence)
 }
 
 function shiftSentenceByOne(sentence) {
@@ -79,8 +86,7 @@ function shiftSentenceByOne(sentence) {
     decryptedWords.push(decryptedWord);
 
   }
-  ifSentenceHasFinnishWords(decryptedWords);
-  // console.log(decryptedWords);
+  sentenceHasFinnishWords(decryptedWords);
 }
 
 // Run main function
