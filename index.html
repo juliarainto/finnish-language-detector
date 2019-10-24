@@ -5,11 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/Public/app.css" />
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <div id="finnish" style="color: red;"></div>
-    <div id="bullshit"></div>
+    <div class="container">
+      <div class="text-container">
+        <div class="header">No bullshit:</div>
+        <div>
+          <ul class="border" id="finnish"></ul>
+        </div>
+      </div>
+      <div class="text-container">
+        <div class="header">Bullshit:</div>
+        <div>
+          <ul class="bullshit-container border" id="bullshit"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="if-finnish-container">
+      <div>Write some Finnish and I will guess if it is finnish or not:</div>
+      <input type="text" id="fname" name="firstname" placeholder="Write a Finnish sentance.."/>
+      <input type="submit" value="Submit" />
+      <div id="result"></div>
+    </div>
+    <footer class="footer"><p id="copyright">© 2019 Julia Rainto</p></footer>
   </body>
   <script src="main.js"></script>
 </html>
