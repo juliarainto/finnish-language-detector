@@ -33,21 +33,21 @@ async function main() {
 
     const decrypted = decryptSentences(fetchedData.bullshits);
     const percentageFinnishWords = [];
-    for (const sentence of decrypted) {
-      const calculatedPercentage = calculateFinnishWords(sentence);
+    for (const sentenceOfDecrypted of decrypted) {
+      const calculatedPercentage = calculateFinnishWords(sentenceOfDecrypted);
       percentageFinnishWords.push(calculatedPercentage);
     }
 
     const sorted = sortSentences(percentageFinnishWords);
-    for (const sentence of sorted) {
-      appendSentencesToUI(sentence);
+    for (const readySentence of sorted) {
+      appendSentencesToUI(readySentence);
     }
   } catch (error) {
     console.trace("Error:", error);
   }
 }
 
-function calculateFinnishWords(sentence) {
+function calculateFinnishWords(sentenceOfDecrypted) {
   // Finnish inflected forms
   const wordEndings = [
     "en",
@@ -88,22 +88,22 @@ function calculateFinnishWords(sentence) {
 
   const possibleFinWords = [];
 
-  for (const word of sentence) {
+  for (const wordOfDecryptedSentence of sentenceOfDecrypted) {
     wordEndings.forEach(element => {
-      if (word.endsWith(element)) {
-        possibleFinWords.push(word);
+      if (wordOfDecryptedSentence.endsWith(element)) {
+        possibleFinWords.push(wordOfDecryptedSentence);
       }
     });
   }
 
   // Turning the first letter of the sentence to upper case.
-  sentence[0] = sentence[0].charAt(0).toUpperCase() + sentence[0].slice(1);
+  sentenceOfDecrypted[0] = sentenceOfDecrypted[0].charAt(0).toUpperCase() + sentenceOfDecrypted[0].slice(1);
 
-  const wordsInSentence = sentence.length;
+  const wordsInSentence = sentenceOfDecrypted.length;
   const percentageOfFinnishWords =
     (possibleFinWords.length / wordsInSentence) * 100;
 
-  return { sentence: sentence.join(" "), percentage: percentageOfFinnishWords };
+  return { sentence: sentenceOfDecrypted.join(" "), percentage: percentageOfFinnishWords };
 }
 
 function sortSentences(sentences) {
@@ -111,36 +111,36 @@ function sortSentences(sentences) {
   return sentences.sort((a, b) => (a.percentage > b.percentage) ? -1 : 1);
 }
 
-function appendSentencesToUI(sentence) {
+function appendSentencesToUI(readySentence) {
   // If Sentence has finnish words more than 60%. It is a Finnish sentence.
-  if (sentence.percentage > 60) {
+  if (readySentence.percentage > 60) {
     const finnishSentences = document.getElementById("finnish");
-    finnishSentences.innerHTML += `<li class="list-style"><div>${sentence.sentence} </div><div>Recognized Finnish words: ${sentence.percentage.toFixed(
+    finnishSentences.innerHTML += `<li class="list-style"><div>${readySentence.sentence} </div><div>Recognized Finnish words: ${readySentence.percentage.toFixed(
       2
     )}%</div></li>`;
   } else {
     const bullshitSentences = document.getElementById("bullshit");
-    bullshitSentences.innerHTML += `<li class="list-style"> ${sentence.sentence} </div><div>Recognized Finnish words: ${sentence.percentage.toFixed(
+    bullshitSentences.innerHTML += `<li class="list-style"> ${readySentence.sentence} </div><div>Recognized Finnish words: ${readySentence.percentage.toFixed(
       2
     )}%</div></li>`;
   }
 }
 
-function howFinnishIsThis(sentence) {
+function howFinnishIsThis(inputSentence) {
   // If Sentence has finnish words more than 60%. It is a Finnish sentence.
-  if (sentence.percentage > 60) {
+  if (inputSentence.percentage > 60) {
     const finnishSentences = document.getElementById("result");
-    finnishSentences.innerHTML = `<div>Very Finnish! ${sentence.percentage.toFixed(
+    finnishSentences.innerHTML = `<div class="very-finnish">Very Finnish! ${inputSentence.percentage.toFixed(
       2
     )}%</div>`;
-  } else if(sentence.percentage > 40){
+  } else if(inputSentence.percentage > 40){
     const finnishSentences = document.getElementById("result");
-    finnishSentences.innerHTML = `<div>Not sure if Finnish! ${sentence.percentage.toFixed(
+    finnishSentences.innerHTML = `<div class="not-sure-finnish">Not sure if Finnish! ${inputSentence.percentage.toFixed(
       2
     )}%</div>`;
   } else {
     const finnishSentences = document.getElementById("result");
-    finnishSentences.innerHTML = `<div>Not Finnish! ${sentence.percentage.toFixed(
+    finnishSentences.innerHTML = `<div class="not-finnish">Not Finnish! ${inputSentence.percentage.toFixed(
       2
     )}%</div>`;
   }

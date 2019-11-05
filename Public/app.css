@@ -33,11 +33,17 @@ body {
   max-width: 40%;
 }
 
+.center-align {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
 .if-finnish-container {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 0 25px 50px 50px;
+  padding: 0 50px 50px 50px;
 }
 
 .border {
@@ -83,6 +89,21 @@ ul.a {
   background-color: #e89848;
 }
 
+.very-finnish {
+  color: #9dbd3c;
+  font-weight: bold;
+}
+
+.not-sure-finnish {
+  color: #e89848;
+  font-weight: bold;
+}
+
+.not-finnish {
+  color: #f27474;
+  font-weight: bold;
+}
+
 #finnish {
   height: 100%;
 }
@@ -97,7 +118,7 @@ ul.a {
 
 input[type=text],
 select {
-  width: 100%;
+  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -136,10 +157,18 @@ input[type=submit]:hover {
   .text-container {
     max-width: 100%;
   }
+
   #copyright {
     padding: 10px 100px;
   }
+
+  input[type=text],
+  select {
+    width: 100%;
+
+  }
 }
+
 @media(max-width: 400px) {
   #copyright {
     padding: 0;
