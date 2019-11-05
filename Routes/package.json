@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/juliarainto/koodihaaste-solidabis.git"
+    "url": "git+https://github.com/juliarainto/finnish-language-detector.git"
   },
   "author": "Julia.Rainto",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/juliarainto/koodihaaste-solidabis/issues"
+    "url": "https://github.com/juliarainto/finnish-language-detector/issues"
   },
-  "homepage": "https://github.com/juliarainto/koodihaaste-solidabis#readme",
+  "homepage": "https://github.com/juliarainto/finnish-language-detector#readme",
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
     "micro": "^9.3.4",
