@@ -19,6 +19,10 @@ body {
   padding: 50px 0;
 }
 
+.subheader{
+  font-size: 1.3rem;
+}
+
 .text-container {
   padding: 0 25px 0 50px;
 }
@@ -31,8 +35,16 @@ body {
 }
 
 .border {
-  border: 5px solid lightgray;
+  border: 5px solid #e89848;
   border-radius: 10px;
+}
+
+.no-bullshit-height {
+  height: 78%;
+}
+
+.bullshit-height {
+  height: 80%
 }
 
 ul.a {
@@ -44,7 +56,6 @@ ul.a {
 }
 
 .bullshit-container {
-  color: red;
   overflow-y: auto;
   box-sizing: border-box;
   height: 20rem;
@@ -70,6 +81,10 @@ ul.a {
   padding: 10px 0;
   color: rgba(255, 255, 255, .8);
   background-color: #e89848;
+}
+
+#finnish {
+  height: 100%;
 }
 
 #copyright {
