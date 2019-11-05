@@ -8,3 +8,6 @@ npm run service
 ``` 
 ## Serve HTML with any Web server
 
+## Task:
+https://koodihaaste.solidabis.com/
+
