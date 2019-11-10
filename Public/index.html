@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Finnish language detector</title>
+    <link rel="stylesheet" type="text/css" href="app.css" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="koodihaaste-container">
+        <div class="text-container">
+          <div class="header">No bullshit:</div>
+          <div class="no-bullshit-height">
+            <ul class="border" id="finnish"></ul>
+          </div>
+        </div>
+        <div class="text-container">
+          <div class="header bullshit">Bullshit:</div>
+          <div class="bullshit-height">
+            <ul class="bullshit-container border" id="bullshit"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="if-finnish-container">
+        <div class="subheader center-align">
+          Write some Finnish and I will guess if it's Finnish or not:
+        </div>
+        <input
+          class="center-align"
+          type="text"
+          id="guess-sentence"
+          name="firstname"
+          placeholder="Write a Finnish sentance.."
+        />
+        <input
+          class="center-align"
+          type="button"
+          value="Check if Finnish!"
+          onclick="checkSentence()"
+        />
+        <div class="center-align" id="result"></div>
+      </div>
+      <footer class="footer"><p id="copyright">© 2019 Julia Rainto</p></footer>
+
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>
