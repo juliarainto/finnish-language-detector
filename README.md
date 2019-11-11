@@ -1,9 +1,11 @@
 # Koodihaaste Solidabis
 
 ## Start service by
-(Serverless service was made to bypass CORS limitation.)
+(Express service was made to bypass CORS limitation.)
+To start the express server. Set the constant 'development' to matching environment.
 
 ```
+npm install
 npm run service
 ``` 
 ## Serve HTML with any Web server
